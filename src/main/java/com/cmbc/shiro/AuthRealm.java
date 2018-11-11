@@ -28,6 +28,7 @@ public class AuthRealm extends AuthorizingRealm {
     // 授权
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+        //从session中先取出对象
         User user = (User) principals.fromRealm(this.getClass().getName()).iterator().next();
         List<String> permissionList = new ArrayList<>();
         List<String> roleNameList = new ArrayList<>();
